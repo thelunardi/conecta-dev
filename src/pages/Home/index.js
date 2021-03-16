@@ -2,7 +2,7 @@ import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Feed from '../components/Feed'
 
-import { makeStyles } from '@material-ui/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import { Box, Container } from "@material-ui/core"
 
 const useStyles = makeStyles({
