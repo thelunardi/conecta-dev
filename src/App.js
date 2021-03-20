@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import theme from '../src/theme'
 
+import './mock'
+
 const App = () => {
 
     return (

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -7,6 +8,9 @@ import LockOutlined from '@material-ui/icons/LockOutlined'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
+import { useNavigate } from 'react-router-dom'
+import authService from '../../services/authService'
+import { FormHelperText } from "@material-ui/core"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,31 +34,12 @@ const useStyles = makeStyles((theme) => ({
     form: {
         margin: theme.spacing(2, 4)
     }
-    // left: {
-    //     background: 'blue',
-    //     flexBasis: '58%',
-    //
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    // },
-    // right: {
-    //     background: 'yellow',
-    //     flexBasis: '42%',
-    // },
-    // form: {
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     margin: '64px 32px',
-    //     alignItems: 'center',
-    // }
 }))
 
 const Copyright = () => {
     return (
         <Typography variant='body2' align='center'>
-            { 'Copyright © '}
+            { 'Copyright © ' }
             <a color='inherit' href='https://www.youtube.com/watch?v=LGf2KJg20lg'>Lucas Nhimi</a>
             { ' ' }
             { new Date().getFullYear() }
@@ -65,6 +50,30 @@ const Copyright = () => {
 
 const SignIn = () => {
     const classes = useStyles()
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState()
+
+    // function handleSignIn () {
+    //     axios
+    //         .post('/api/home/login')
+    //         .then(response => {
+    //             console.log(response)
+    //     }).catch(error => {
+    //         console.log(error)
+    //     })
+    //     navigate('/sign_in')
+    // }
+
+    async function handleSignIn() {
+        try {
+            await authService.signIn(email, password)
+            navigate('/')
+        } catch (error) {
+            setErrorMessage(error.response.data.message)
+        }
+    }
 
     return (
         <Grid
@@ -120,6 +129,8 @@ const SignIn = () => {
                             name='email'
                             autoComplete='email'
                             autoFocus
+                            value={ email }
+                            onChange={ (event) => setEmail(event.target.value) }
                         />
                         <TextField
                             variant='outlined'
@@ -131,15 +142,23 @@ const SignIn = () => {
                             name='password'
                             type='password'
                             autoComplete='current-password'
+                            value={ password }
+                            onChange={ (event) => setPassword(event.target.value) }
                         />
                         <Button
                             className={ classes.button }
                             fullWidth
                             variant='contained'
                             color='primary'
+                            onClick={ handleSignIn }
                         >
                             Entrar
                         </Button>
+                        {
+                            errorMessage && <FormHelperText error>
+                                { errorMessage }
+                            </FormHelperText>
+                        }
                         <Grid container>
                             <Grid item>
                                 <Link>Esqueceu sua senha?</Link>
