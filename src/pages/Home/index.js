@@ -1,4 +1,4 @@
-import Header from '../components/Header'
+import Header from '../components/Header/index'
 import Navbar from '../components/Navbar'
 import Feed from '../components/Feed'
 

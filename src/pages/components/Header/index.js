@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { AppBar } from '@material-ui/core'
 import { Toolbar } from '@material-ui/core'
 import SvgIcon from '@material-ui/core/SvgIcon'
-import Avatar from '@material-ui/core/Avatar'
 import { Bell } from 'react-feather'
-import { useSelector } from 'react-redux'
+import Account from './Account'
 
 const useStyles = makeStyles({
     appBar: {
@@ -31,20 +30,19 @@ const useStyles = makeStyles({
 
 const Header = () => {
     const classes = useStyles()
-    const account = useSelector(state => state.account)
 
     return (
         <AppBar position='fixed' color='inherit' className={ classes.appBar }>
             <Toolbar>
-                <img className={ classes.img } src='/images/logo.png' alt='logo'/>
-                <div className={ classes.grow }/>
+                <img className={ classes.img } src='/images/logo.png' alt='logo' />
+                <div className={ classes.grow } />
                 <div className={ classes.userSection }>
                     <Button className={ classes.button } color='primary' variant='contained'>Novo Post</Button>
                     <SvgIcon className={ classes.bell }>
-                        <Bell/>
+                        <Bell />
                     </SvgIcon>
-                    <Avatar alt={ account?.user?.username } src={ account?.user?.avatar } />
                 </div>
+                <Account />
             </Toolbar>
         </AppBar>
     )

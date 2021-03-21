@@ -36,11 +36,17 @@ class AuthService {
         })
     }
 
+    signOut = () => {
+        this.removeToken()
+    }
+
     setToken = (token) => {
         localStorage.setItem('accessToken', JSON.stringify(token))
     }
 
     getToken = () => localStorage.getItem('accessToken')
+
+    removeToken = () => { localStorage.removeItem('accessToken')}
 
     isAuthenticated = () => !!this.getToken()
 }
