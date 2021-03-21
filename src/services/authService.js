@@ -7,7 +7,7 @@ class AuthService {
                 .post('api/home/login', { email, password })
                 .then(response => {
                     if (response.data.user) {
-                        this.setUser(response.data.user)
+                        // this.setUser(response.data.user)
                         resolve(response.data.user)
                         return
                     }
@@ -23,7 +23,13 @@ class AuthService {
         localStorage.setItem('user', JSON.stringify(user))
     }
 
-    getUser = () => localStorage.getItem('user')
+    getUser = () => {
+        const user =  localStorage.getItem('user')
+        if (user) {
+            return JSON.parse(user)
+        }
+        return user
+    }
 
     isAuthenticated = () => !!this.getUser()
 }

@@ -14,7 +14,7 @@ const posts = [
             id: 1,
             name: 'Lelezin',
             username: 'lelezin',
-            avatar: '/images/avatars/avatar_1.jpeg'
+            avatar: '/images/avatars/avatar.jpeg'
         },
         title: 'Já é',
         date: 'April 1, 2021',

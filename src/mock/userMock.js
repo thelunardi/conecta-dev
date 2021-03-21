@@ -15,7 +15,8 @@ mock.onPost('/api/home/login').reply((config) => {
     const user = {
         id: 1,
         username: 'thelunardi',
-        email: 'lele@lele.com'
+        email: 'lele@lele.com',
+        avatar: '/images/avatars/avatar.jpeg'
     }
     return [200, { user }]
 })

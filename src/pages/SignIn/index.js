@@ -10,8 +10,9 @@ import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
 import { useNavigate } from 'react-router-dom'
 import { FormHelperText } from "@material-ui/core"
+import { useDispatch } from 'react-redux'
 
-import authService from '../../services/authService'
+import signIn from '../../actions/accountAction'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,6 +56,7 @@ const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState()
+    const dispatch = useDispatch()
 
     // function handleSignIn () {
     //     axios
@@ -69,7 +71,8 @@ const SignIn = () => {
 
     async function handleSignIn() {
         try {
-            await authService.signIn(email, password)
+            await dispatch(signIn(email, password))
+
             navigate('/')
         } catch (error) {
             setErrorMessage(error.response.data.message)
