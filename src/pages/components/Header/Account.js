@@ -23,14 +23,14 @@ const Account = () => {
 
     const handleClose = () => {
         setOpen(false)
-
-        //logout no app atraves do redux
-        dispatch(signOut())
-        navigate('/')
     }
 
     const handleSignOut = () => {
         handleClose()
+
+        //logout no app atraves do redux
+        dispatch(signOut())
+        navigate('/')
     }
 
     return (
