@@ -26,7 +26,7 @@ const iconsMap = {
 
 const useStyles = makeStyles((theme) => ({
     icon: {
-        background: theme.palette.palette.secondary.main,
+        background: theme.palette.secondary.main,
         color: theme.palette.secondary.contrastText,
     }
 }))
@@ -39,8 +39,6 @@ const Notifications = () => {
     const [isOpen, setOpen] = useState(false)
     const dispatch = useDispatch()
     const classes = useStyles()
-
-    console.log(classes.icon)
 
     const handleOpen = () => {
         setOpen(true)

@@ -3,7 +3,7 @@ import palette from './palette'
 import typography from './typography'
 
 const theme = createMuiTheme ({
-    palette,
+    palette: palette.palette,
     typography
 })
 

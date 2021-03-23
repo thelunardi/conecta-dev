@@ -12,6 +12,7 @@ import store from './store'
 import './mock'
 
 const App = () => {
+    console.log(theme)
     return (
         <Provider store={ store }>
             <ThemeProvider theme={ theme }>
