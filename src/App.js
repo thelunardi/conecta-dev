@@ -18,9 +18,8 @@ const App = () => {
                 <BrowserRouter>
                     <Auth>
                         <Routes>
-                            <Route path='/' element={ <Home /> } />
                             <GuestRoute path='/sign_in' element={ <SignIn /> } />
-                            <Route path='*' element={ <h1>NOT FOUND</h1> } />
+                            <Route path='//*' element={ <Home /> } />
                         </Routes>
                     </Auth>
                 </BrowserRouter>

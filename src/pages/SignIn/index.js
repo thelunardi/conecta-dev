@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
     },
     avatar: {
-        background: theme.palette.palette.primary.main,
+        background: theme.palette.primary.main,
         marginBottom: theme.spacing(1),
     },
     button: {

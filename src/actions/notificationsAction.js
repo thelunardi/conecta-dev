@@ -14,6 +14,4 @@ const getNotifications = () => {
     }
 }
 
-export {
-    getNotifications
-}
+export { getNotifications }

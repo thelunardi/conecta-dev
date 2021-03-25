@@ -1,15 +1,19 @@
 import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Avatar from '@material-ui/core/Avatar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import MessageIcon from '@material-ui/icons/Message'
-import BookmarkIcon from '@material-ui/icons/Bookmark'
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    CardActions,
+    CardActionArea,
+    Avatar,
+    Typography,
+    IconButton,
+} from '@material-ui/core'
+import {
+    Favorite as FavoriteIcon,
+    Message as MessageIcon,
+    Bookmark as BookmarkIcon,
+} from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -76,7 +80,7 @@ const PostCard = ({ post }) => {
                         { '30' }
                     </Typography>
                 </IconButton>
-                <IconButton aria-label='favorite' className={classes.favorite}>
+                <IconButton aria-label='favorite' className={ classes.favorite }>
                     <BookmarkIcon />
                 </IconButton>
             </CardActions>
