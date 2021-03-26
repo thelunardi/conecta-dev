@@ -3,10 +3,10 @@ import Box from "@material-ui/core/Box"
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
-import { useState } from 'react'
 
 import PostEditor from './Editor'
 import PostPreview from './Preview'
+import { PostProvider } from '../../../context/PostContext'
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -38,25 +38,9 @@ const useStyles = makeStyles(theme => ({
 
 const NewPost = () => {
     const classes = useStyles()
-    const [image, setImage] = useState(null)
-    const [title, setTitle] = useState('')
-    const [tags, setTags] = useState([])
-    const [markdownText, setMarkdownText] = useState('')
-
-    const handleTitle = (event) => {
-        setTitle(event.currentTarget.value)
-    }
-
-    const handleTags = (event, values) => {
-        setTags(values)
-    }
-
-    const handleMarkdown = (event) => {
-        setMarkdownText(event.currentTarget.value)
-    }
 
     return (
-        <>
+        <PostProvider>
             <Box
                 display='flex'
                 height='calc(100% - 70px)'
@@ -68,28 +52,14 @@ const NewPost = () => {
                     padding={ 2 }
                     borderRight='1px solid #ddd'
                 >
-                    <PostEditor
-                        image={ image }
-                        setImage={ setImage }
-                        title={ title }
-                        setTitle={ handleTitle }
-                        tags={ tags }
-                        setTags={ handleTags }
-                        markdownText={ markdownText }
-                        setMarkdownText={ handleMarkdown }
-                    />
+                    <PostEditor />
                 </Box>
                 <Box
                     width='50%'
                     height='100%'
                     padding={ 2 }
                 >
-                    <PostPreview
-                        image={ image }
-                        title={ title }
-                        tags={ tags }
-                        markdownText={ markdownText }
-                    />
+                    <PostPreview />
                 </Box>
             </Box>
             <AppBar position='fixed' color='inherit' className={ classes.appBar }>
@@ -102,7 +72,7 @@ const NewPost = () => {
                     </Button>
                 </Toolbar>
             </AppBar>
-        </>
+        </PostProvider>
     )
 }
 

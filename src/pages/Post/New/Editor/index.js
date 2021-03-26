@@ -6,6 +6,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { useDropzone } from 'react-dropzone'
 import { useCallback } from 'react'
 
+import Title from './Title'
+import { usePost } from '../../../../context/PostContext'
+
 const useStyles = makeStyles(theme => ({
     image: {
         height: 100,
@@ -26,8 +29,10 @@ const tagsList = [
     { title: 'php' },
 ]
 
-const PostEditor = ({ image, setImage, title, setTitle, tags, setTags, markdownText, setMarkdownText }) => {
+const PostEditor = () => {
     const classes = useStyles()
+    const ctx = usePost()
+    const { image, setImage, tags, setTags, markdownText, setMarkdownText } = ctx
 
     const onDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0]
@@ -58,7 +63,7 @@ const PostEditor = ({ image, setImage, title, setTitle, tags, setTags, markdownT
             )
             }
             <Box mb={ 2 }>
-                <TextField id='title' placeholder='Título' fullWidth value={ title } onChange={ setTitle } />
+                <Title />
             </Box>
             <Box mb={ 2 }>
                 <Autocomplete
