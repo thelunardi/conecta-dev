@@ -2,16 +2,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Routes, Route } from "react-router-dom"
 
 import Header from './Header'
-import NewPost from '../Post/New'
+import NewPost from '../Post/New/index'
 import Feed from '../Feed'
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     main: {
-        height: '100vh',
+        height: 'calc(100vh - 64px)',
         padding: 24,
     },
     toolbar: {

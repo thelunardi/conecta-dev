@@ -4,6 +4,7 @@ mock.onPost('/api/home/me').reply(200, {
     user: {
         'id': 1,
         'username': 'thelunardi',
+        'name': 'Alexandre Lunardi',
         'email': 'lele@lele.com',
         'avatar': '/images/avatars/avatar.jpeg',
     }

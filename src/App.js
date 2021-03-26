@@ -18,7 +18,7 @@ const App = () => {
                 <BrowserRouter>
                     <Auth>
                         <Routes>
-                            <GuestRoute path='/sign_in' element={ <SignIn /> } />
+                            <GuestRoute path='/sign-in' element={ <SignIn /> } />
                             <Route path='//*' element={ <Home /> } />
                         </Routes>
                     </Auth>
