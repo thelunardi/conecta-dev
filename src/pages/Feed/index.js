@@ -1,6 +1,8 @@
 import { Box, Container } from '@material-ui/core'
+import { useCallback, useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
+import axios from '../../utils/axios'
 import PostCard from '../../components/PostCard'
 import Navbar from './NavBar'
 
@@ -10,25 +12,19 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const posts = [
-    {
-        id: 1,
-        author: {
-            id: 1,
-            name: 'Lelezin',
-            username: 'lelezin',
-            avatar: '/images/avatars/avatar.jpeg'
-        },
-        title: 'Já é',
-        date: 'April 1, 2021',
-        description: 'Nós que reina!',
-        hashtags: '#nois #que #reina',
-        image: '/images/posts/post8.png',
-    },
-]
-
 const Feed = () => {
     const classes = useStyles()
+    const [posts, setPosts] = useState([])
+
+    const getPosts = useCallback(async () => {
+        const feed = await axios.get('api/feed')
+        setPosts(feed.data.posts)
+    }, [setPosts])
+
+    useEffect(() => {
+        getPosts()
+    }, [getPosts])
+
     return (
         <Container maxWidth='lg'>
             <Box display='flex'>

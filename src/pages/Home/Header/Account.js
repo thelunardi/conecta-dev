@@ -33,6 +33,10 @@ const Account = () => {
         navigate('/')
     }
 
+    const handleSignIn = () => {
+        navigate('/sign-in')
+    }
+
     return (
         <>
             <Avatar
@@ -72,7 +76,7 @@ const Account = () => {
                         getContentAnchorEl={ null }
                     >
                         <MenuItem>Registrar Grátis</MenuItem>
-                        <MenuItem>Entrar</MenuItem>
+                        <MenuItem onClick={ handleSignIn }>Entrar</MenuItem>
                     </Menu>
             }
         </>

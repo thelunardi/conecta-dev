@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Header from './Header'
 import NewPost from '../Post/New/index'
 import Feed from '../Feed'
+import Post from '../Post'
 
 const useStyles = makeStyles({
     root: {
@@ -30,6 +31,7 @@ const Home = () => {
                     <Route path='/' element={ <Feed /> } />
                     <Route path='/feed' element={ <Feed /> } />
                     <Route path='/post/new' element={ <NewPost /> } />
+                    <Route path='/post/:slug' element={ <Post /> } />
                     <Route path='*' element={ <h1>NOT FOUND</h1> } />
                 </Routes>
             </main>
