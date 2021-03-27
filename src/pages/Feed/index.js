@@ -1,6 +1,7 @@
 import { Box, Container } from '@material-ui/core'
 import { useCallback, useEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import Hidden from '@material-ui/core/Hidden'
 
 import axios from '../../utils/axios'
 import PostCard from '../../components/PostCard'
@@ -8,8 +9,8 @@ import Navbar from './NavBar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        padding: theme.spacing(2)
-    }
+        padding: theme.spacing(2),
+    },
 }))
 
 const Feed = () => {
@@ -28,7 +29,9 @@ const Feed = () => {
     return (
         <Container maxWidth='lg'>
             <Box display='flex'>
-                <Navbar />
+                <Hidden smDown>
+                    <Navbar />
+                </Hidden>
                 <div className={ classes.root }>
                     {
                         posts.map(post => (
