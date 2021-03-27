@@ -7,7 +7,7 @@ import Avatar from '@material-ui/core/Avatar'
 import LockOutlined from '@material-ui/icons/LockOutlined'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Link from '@material-ui/core/Link'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { FormHelperText } from "@material-ui/core"
 import { useDispatch } from 'react-redux'
@@ -163,12 +163,12 @@ const SignIn = () => {
                                 { errorMessage }
                             </FormHelperText>
                         }
-                        <Grid container>
+                        <Grid container justify='space-between'>
                             <Grid item>
-                                <Link>Esqueceu sua senha?</Link>
+                                <Link to='/sign-up'>Esqueceu sua senha?</Link>
                             </Grid>
                             <Grid item>
-                                <Link>Não tem conta? Registre-se</Link>
+                                <Link to='/sign-up'>Não tem conta? Registre-se</Link>
                             </Grid>
                         </Grid>
                     </form>

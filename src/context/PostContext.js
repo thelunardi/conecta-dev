@@ -42,7 +42,7 @@ PostProvider.defaultProps = {
 }
 
 PostProvider.propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.any.isRequired
 }
 
 export function usePost() {
