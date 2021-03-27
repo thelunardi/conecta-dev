@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import {
     Card,
@@ -86,6 +87,14 @@ const PostCard = ({ post }) => {
             </CardActions>
         </Card>
     )
+}
+
+PostCard.defaultProps = {
+    post: {}
+}
+
+PostCard.propTypes = {
+    post: PropTypes.object.isRequired
 }
 
 export default PostCard

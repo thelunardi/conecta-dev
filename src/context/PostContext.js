@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from 'react'
+import PropTypes from 'prop-types'
 
 export const PostContext = createContext()
 
@@ -34,6 +35,14 @@ export function PostProvider({ children }) {
     >
         { children }
     </PostContext.Provider>
+}
+
+PostProvider.defaultProps = {
+    children: {}
+}
+
+PostProvider.propTypes = {
+    children: PropTypes.object.isRequired
 }
 
 export function usePost() {

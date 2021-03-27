@@ -9,7 +9,7 @@ import { useCallback } from 'react'
 import Title from './Title'
 import { usePost } from '../../../../context/PostContext'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     image: {
         height: 100,
     },

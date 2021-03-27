@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -13,6 +14,14 @@ const GuestRoute = ({ element: Component, ...rest }) => {
             : Component
         )} />
     )
+}
+
+GuestRoute.defaultProps = {
+    element: {}
+}
+
+GuestRoute.propTypes = {
+    element: PropTypes.any
 }
 
 export default GuestRoute
