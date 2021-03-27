@@ -6,6 +6,7 @@ import authService from '../../services/authService'
 
 const Auth = ({ children }) => {
     const dispatch = useDispatch()
+
     const initAuth = useCallback(async () => {
         if (authService.isAuthenticated()) {
             await dispatch(setUserData())
@@ -15,6 +16,7 @@ const Auth = ({ children }) => {
     useEffect(() => {
         initAuth()
     }, [initAuth])
+
     return children
 }
 

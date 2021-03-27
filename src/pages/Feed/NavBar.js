@@ -5,6 +5,7 @@ import ListSubheader from '@material-ui/core/ListSubheader'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,6 +29,8 @@ const tags = [
 const Navbar = () => {
     const classes = useStyles()
     const navigate = useNavigate()
+    const account = useSelector(state => state.account)
+    const isAuthenticated = !!account.user
 
     const handleSignUp = () => {
         navigate('/sign-up')
@@ -35,7 +38,11 @@ const Navbar = () => {
 
     return (
         <Paper className={ classes.root }>
-            <Button onClick={ handleSignUp } variant='outlined' color='secondary' className={ classes.button }>Registrar Grátis</Button>
+            {
+                !isAuthenticated &&
+                <Button onClick={ handleSignUp } variant='outlined' color='secondary' className={ classes.button }>Registrar Grátis</Button>
+            }
+
             <ListSubheader>{ `Tags em alta` }</ListSubheader>
             {
                 tags.map((item) => (

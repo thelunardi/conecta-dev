@@ -37,7 +37,7 @@ const Profile = () => {
 
     TabPanel.propTypes = {
         children: PropTypes.any.isRequired,
-        value: PropTypes.string.isRequired,
+        value: PropTypes.number.isRequired,
         index: PropTypes.number.isRequired,
     }
 

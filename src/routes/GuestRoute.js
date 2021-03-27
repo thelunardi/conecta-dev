@@ -6,18 +6,16 @@ import Home from '../pages/Home'
 
 const GuestRoute = ({ element: Component, ...rest }) => {
     const account = useSelector(state => state.account)
-    const isAuthenticated = Boolean(account?.user)
+    const isAuthenticated = !!account.user
+    console.log('auth', isAuthenticated)
+
     return (
-        <Route { ...rest } element={(
+        <Route { ...rest } element={
             isAuthenticated
             ? <Home />
             : Component
-        )} />
+        } />
     )
-}
-
-GuestRoute.defaultProps = {
-    element: {}
 }
 
 GuestRoute.propTypes = {
