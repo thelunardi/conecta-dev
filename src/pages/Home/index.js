@@ -1,9 +1,11 @@
+import { Routes, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import { Routes, Route } from "react-router-dom"
 
 import Header from './Header'
 import NewPost from '../Post/New/index'
 import Feed from '../Feed'
+import Post from '../Post'
+import Profile from '../Profile'
 
 const useStyles = makeStyles({
     root: {
@@ -21,6 +23,7 @@ const useStyles = makeStyles({
 
 const Home = () => {
     const classes = useStyles()
+
     return (
         <div className={ classes.root }>
             <Header />
@@ -28,8 +31,10 @@ const Home = () => {
             <main className={ classes.main }>
                 <Routes>
                     <Route path='/' element={ <Feed /> } />
+                    <Route path='/:username' element={ <Profile /> } />
                     <Route path='/feed' element={ <Feed /> } />
                     <Route path='/post/new' element={ <NewPost /> } />
+                    <Route path='/post/:slug' element={ <Post /> } />
                     <Route path='*' element={ <h1>NOT FOUND</h1> } />
                 </Routes>
             </main>

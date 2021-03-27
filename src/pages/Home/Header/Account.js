@@ -28,9 +28,20 @@ const Account = () => {
     const handleSignOut = () => {
         handleClose()
 
-        //logout no app atraves do redux
         dispatch(signOut())
         navigate('/')
+    }
+
+    const handleSignIn = () => {
+        navigate('/sign-in')
+    }
+
+    const handleSignUp = () => {
+        navigate('/sign-up')
+    }
+
+    const handleProfileClick = () => {
+        navigate(`/${account.user.username}`)
     }
 
     return (
@@ -54,8 +65,7 @@ const Account = () => {
                         onClose={ handleClose }
                         getContentAnchorEl={ null }
                     >
-                        <MenuItem>Perfil</MenuItem>
-                        <MenuItem>Meus Favoritos</MenuItem>
+                        <MenuItem onClick={ handleProfileClick }>Perfil</MenuItem>
                         <MenuItem>Meus Posts</MenuItem>
                         <MenuItem>Minhas Conexões</MenuItem>
                         <MenuItem onClick={ handleSignOut }>Sair</MenuItem>
@@ -71,8 +81,8 @@ const Account = () => {
                         onClose={ handleClose }
                         getContentAnchorEl={ null }
                     >
-                        <MenuItem>Registrar Grátis</MenuItem>
-                        <MenuItem>Entrar</MenuItem>
+                        <MenuItem onClick={ handleSignUp }>Registrar Grátis</MenuItem>
+                        <MenuItem onClick={ handleSignIn }>Entrar</MenuItem>
                     </Menu>
             }
         </>

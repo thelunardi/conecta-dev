@@ -24,3 +24,15 @@ mock.onPost('/api/home/login').reply((config) => {
     }
     return [200, { user }]
 })
+
+mock.onGet('/api/home/user/thelunardi').reply(200, {
+    id: 1,
+    name: 'Alexandre Lunardi',
+    username: 'thelunardi',
+    email: 'lele@lele.com',
+    accessToken: 'teste',
+    avatar: '/images/avatars/avatar.jpeg',
+    joinedIn: '06 de janeiro, 2020',
+    work: 'Desenvolvedor',
+    totalPost: '2',
+});

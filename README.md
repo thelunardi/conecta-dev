@@ -1,6 +1,8 @@
 # conecta-dev
 
-https://www.youtube.com/watch?v=LGf2KJg20lg
+Vídeo do curso: https://www.youtube.com/watch?v=LGf2KJg20lg
+
+URL do projeto: https://conecta-dev-thelunardi.vercel.app/
 
 # Getting Started with Create React App
 
