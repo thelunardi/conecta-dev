@@ -7,7 +7,6 @@ import Home from '../pages/Home'
 const GuestRoute = ({ element: Component, ...rest }) => {
     const account = useSelector(state => state.account)
     const isAuthenticated = !!account.user
-    console.log('auth', isAuthenticated)
 
     return (
         <Route { ...rest } element={
