@@ -7,19 +7,19 @@ import Feed from '../Feed'
 import Post from '../Post'
 import Profile from '../Profile'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( (theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: theme.palette.background.dark
     },
     main: {
-        height: 'calc(100vh - 64px)',
         padding: 24,
     },
     toolbar: {
         minHeight: 64,
     }
-})
+}))
 
 const Home = () => {
     const classes = useStyles()

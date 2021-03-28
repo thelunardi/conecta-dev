@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import AppBar from '@material-ui/core/AppBar'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { usePost } from '../../../../context/PostContext'
+// import { usePost } from '../../../../context/PostContext'
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -18,9 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const BottomBar = () => {
     const classes = useStyles()
-    const ctx = usePost()
-
-    console.log(ctx)
+    // const ctx = usePost()
 
     // const handleSaveDraft = () => {
     //     // acessar back e salvar rascunho
