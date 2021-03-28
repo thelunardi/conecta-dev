@@ -30,7 +30,7 @@ const PostView = ({ post }) => {
     return (
         <Container maxWidth="lg">
             <Box mb={ 2 }>
-                <Typography variant="h2" color="textPrimary">
+                <Typography variant="h3" color="textPrimary">
                     { title }
                 </Typography>
             </Box>

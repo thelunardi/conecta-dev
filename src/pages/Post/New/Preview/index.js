@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
     avatar: {
         marginRight: theme.spacing(1)
     },
+    markDown: {
+      color: theme.palette.text.primary,
+    },
 }))
 
 const PostPreview = () => {
@@ -30,7 +33,7 @@ const PostPreview = () => {
             )
             }
             <Box mb={ 2 }>
-                <Typography variant='h2'>
+                <Typography variant='h2' color='textPrimary'>
                     { title }
                 </Typography>
             </Box>
@@ -39,7 +42,7 @@ const PostPreview = () => {
                     <Avatar className={ classes.avatar } src={ account.user?.avatar } />
                 </Box>
                 <Box>
-                    <Typography variant='body1'>
+                    <Typography variant='body1' color='textPrimary'>
                         { account.user?.name }
                     </Typography>
                     <Typography variant='body2' color='textSecondary'>
@@ -48,12 +51,12 @@ const PostPreview = () => {
                 </Box>
             </Box>
             <Box mb={ 2 }>
-                <Typography variant='body1'>
+                <Typography variant='body1' color='textPrimary'>
                     { tags?.map(item => item.title).join(', ') }
                 </Typography>
             </Box>
             <Divider />
-            <Markdown source={ markdownText } />
+            <Markdown source={ markdownText } className={classes.markDown} />
         </>
     )
 }
