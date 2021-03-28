@@ -19,6 +19,24 @@ class AuthService {
         })
     }
 
+    signUp = (fullName, email, password) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post('api/home/login', { email, password })
+                .then(response => {
+                    if (response.data.user) {
+                        this.setToken('accessToken')
+                        resolve(response.data.user)
+                        return
+                    }
+                    reject(response.data.error)
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    }
+
     signInWithToken = () => {
         return new Promise((resolve, reject) => {
             axios
