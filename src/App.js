@@ -6,13 +6,16 @@ import GuestRoute from './routes/GuestRoute'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
-import theme from './theme'
+import createTheme from './theme'
+import { useSettings } from './context/SettingsContext'
 
 import './mock'
 
 const App = () => {
+    const { settings } = useSettings()
+
     return (
-        <ThemeProvider theme={ theme }>
+        <ThemeProvider theme={ createTheme(settings) }>
             <BrowserRouter>
                 <Auth>
                     <Routes>
