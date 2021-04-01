@@ -52,16 +52,4 @@ describe('Auth Service', () => {
             }
         })
     })
-
-    // it('get a value from localStorage', () => {
-    //     const data = {
-    //         teste: 'teste'
-    //     }
-    //     window.localStorage.setItem('settings', JSON.stringify(data))
-    //
-    //     const dataOnLocalStorage = window.localStorage.getItem('settings')
-    //     const settings = JSON.parse(dataOnLocalStorage)
-    //
-    //     expect(getSettings()).toStrictEqual(settings)
-    // })
 })
